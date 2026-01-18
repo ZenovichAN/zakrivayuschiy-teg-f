@@ -10,6 +10,7 @@
 
 body {
   margin: 0;
+   font-family: var(--font-variable);
 }
 
 h1,
@@ -24,6 +25,10 @@ ol,
 li {
   margin: 0;
   padding: 0;
+}
+
+h1{
+  font-family: var(--font-regular);
 }
 
 a {
