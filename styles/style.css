@@ -1,14 +1,15 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-
   font-family: var(--font-main);
   font-variation-settings: "wght" var(--font-weight-text);
   color: var(--text-color);
-
   background-image: var(--bg-page);
-  background-size: 4px 4px, 4px 4px, cover;
-  background-attachment: fixed;
+  background-size:
+    4px 4px,
+    4px 4px,
+    cover;
+  background-attachment: fixed, fixed, fixed;
 }
 
 .content {
@@ -20,9 +21,7 @@
   margin-block-start: 100px;
   border: 2px solid var(--border-color);
   background: var(--bg-color);
-  /* padding: var(--header-padding) 24px; */
   padding: calc(var(--header-padding) - 0.25rem) 24px;
-
 }
 
 .header__logo {
@@ -30,7 +29,7 @@
   text-transform: uppercase;
   text-align: center;
   margin: 0;
-   line-height: 1;
+  line-height: 1;
   font-size: clamp(3.063rem, 1.5vw + 2.7rem, 4.063rem);
 }
 
@@ -39,20 +38,20 @@
   text-transform: uppercase;
   text-align: center;
   margin: 20px 0 0;
-   line-height: 1;
-     font-size: calc(clamp(0.875rem, 0.6vw + 0.7rem, 1.438rem) + 0.195rem);
+  line-height: 1;
+  font-size: calc(
+    clamp(0.875rem, 0.6vw + 0.7rem, 1.438rem) + 0.195rem
+  ); /*читсый clamp не работает*/
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 54px;
   margin-block: 100px;
 }
 
 .card {
- 
-
   border: 2px solid var(--border-color);
   background: var(--bg-color);
 }
@@ -61,7 +60,6 @@
   font-variation-settings: "wght" var(--font-weight-title);
   font-size: 18px;
   margin: 0;
-  /* padding: 3px 10px; */
   padding-left: 10px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -79,9 +77,8 @@
 .card__image {
   display: block;
   width: 100%;
-  height: 696px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-
 }
 
 .card__label {
@@ -89,17 +86,14 @@
   top: 30px;
   right: 25px;
   z-index: 1;
-
   font-family: var(--font-accent);
   font-size: 14px;
   text-transform: uppercase;
-
   opacity: 0.5;
   mix-blend-mode: hard-light;
   pointer-events: none;
 }
 
-/* обводка текста + fallback */
 @supports (-webkit-text-stroke: 1px var(--stroke-color)) {
   .card__label {
     -webkit-text-stroke: 1px var(--stroke-color);
@@ -120,15 +114,15 @@
 /* ===== Text ===== */
 
 .card__text {
-  padding-top: 25px;
+  padding-top: 24px;
   padding-left: 25px;
   padding-bottom: 24px;
   padding-right: 27px;
   display: grid;
-  gap: 21px;
+  gap: 24px;
   font-family: var(--font-main);
   font-size: 18px;
-
+  line-height: 1.16;
 }
 
 /* ===== Buttons ===== */
@@ -138,14 +132,8 @@
   justify-content: end;
   align-items: center;
   gap: 12px;
-  padding-top: px;
-  padding-right: 24px;
-  padding-bottom: 25px;
+  padding: 0 25px 25px;
 }
-
-/* .card__like-button button__text{
-padding-bottom: 5px;
-} */
 
 .card__icon-button {
   display: grid;
@@ -165,11 +153,11 @@ padding-bottom: 5px;
   border-color: var(--border-color);
 }
 
-/* общая кнопка (Like / Save / OK) */
+/* общая кнопка*/
 .button {
   position: relative;
   overflow: hidden;
-
+  transition: box-shadow 0.3s ease;
   border: 2px solid var(--border-color);
   background: var(--button-bg-color);
   cursor: pointer;
@@ -180,15 +168,14 @@ padding-bottom: 5px;
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 0 var(--border-color);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 2px 2px 0 0 var(--accent-color);
 }
 
 .button::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: #000;
+  background: var(--button-overlay-color);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
@@ -201,15 +188,16 @@ padding-bottom: 5px;
 .save-button__icon {
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: var(--button-text-color);
   mix-blend-mode: difference;
   font-family: var(--font-accent);
- 
+  padding-left: 5px;
 }
 
 .card__like-button {
   inline-size: 130px;
   block-size: 38px;
+  padding-top: 13px;
 }
 
 /* ===== Footer ===== */
@@ -217,29 +205,23 @@ padding-bottom: 5px;
 .footer {
   display: flex;
   justify-content: center;
-  /* padding-bottom: 100px; */
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .save-button {
-display: flex;
-  align-items: center;      /* вертикальный центр */
-  justify-content: center;  /* общий центр по горизонтали */
-  /* gap: 5px; */
+  display: flex;
+  align-items: center; /* вертикальный центр */
+  justify-content: center; /* центр по горизонтали */
   padding: 20px 20px;
-   margin-top: -55px;
-   margin-bottom: 100px;
-   height: 55px; 
+  margin-top: -50px;
+  margin-bottom: 100px;
+  height: 55px;
 }
 
 .save-button .button__text {
   line-height: 1;
   font-size: 14px;
-padding-left: 5px;
-
 }
-
-
 
 /* ===== Dialog ===== */
 
@@ -278,39 +260,35 @@ padding-left: 5px;
 
 /* ===== Filters  ===== */
 
-.card:nth-of-type(1) .card__image {
-  /* filter: grayscale(0.35) contrast(1.05); */
+.filter-start {
   filter: brightness(0.95) contrast(1.25) saturate(0.85);
 }
 
-.card:nth-of-type(2) .card__image {
-  /* filter: brightness(0.95) contrast(1.25) saturate(0.85); */
+.filter-blank {
   filter: sepia(0.6);
 }
 
-.card:nth-of-type(3) .card__image {
-  /* filter: brightness(70%); */
+.filter-anxiety {
   filter: saturate(300%);
 }
 
-.card:nth-of-type(4) .card__image {
+.filter-ideal {
   filter: sepia(0.35) saturate(1.25);
 }
 
-.card:nth-of-type(5) .card__image {
+.filter-support {
   filter: invert(100%);
 }
 
-.card:nth-of-type(6) .card__image {
+.filter-strategy {
   filter: grayscale(80%);
 }
 
-.card:nth-of-type(7) .card__image {
-  /* filter: grayscale(0.55) brightness(0.9) contrast(1.1); */
+.filter-focus {
   filter: blur(10px);
 }
 
-.card:nth-of-type(8) .card__image {
+.filter-now {
   filter: contrast(50%);
 }
 
@@ -320,13 +298,36 @@ padding-left: 5px;
   .save-button {
     flex-direction: column;
     gap: 8px;
+    height: auto;
+    margin-top: -50px;
+  }
+
+  .save-button__icon {
+    flex-shrink: 0;
+    display: block;
+    width: 26px;
+    height: 22px;
   }
 
   .card__image {
+    aspect-ratio: auto;
     height: 371px;
   }
 
   .card__label {
-    right: 13px;
+    right: 24px;
+  }
+
+  .card__text {
+    padding: 25px;
+    gap: 25px;
+  }
+
+  .main {
+    gap: 51px;
+  }
+
+  .card__buttons {
+    padding: 0 25px 25px;
   }
 }
