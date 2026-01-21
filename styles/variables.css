@@ -1,6 +1,6 @@
 :root {
-  --font-main: "Inter-Variable", sans-serif;
-  --font-accent: "PressStart2P-Regular", monospace;
+  --font-main: "Inter-Variable";
+  --font-accent: "PressStart2P";
   --font-weight-text: 400;
   --font-weight-title: 700;
   --bg-page:
