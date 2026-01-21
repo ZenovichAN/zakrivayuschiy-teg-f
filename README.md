@@ -1,1 +1,1 @@
-https://github.com/ZenovichAN/zakrivayuschiy-teg-f
+https://zenovichan.github.io/zakrivayuschiy-teg-f/
