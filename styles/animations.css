@@ -7,17 +7,18 @@
   shape-rendering: crispEdges;
 }
 
+.heart {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
 .sparks {
   opacity: 0;
 }
 
-.heart {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
 .contour {
-  transition: fill 0.1s linear 0s;
+  transition: fill 0.1s linear;
 }
 
 .core {
@@ -27,37 +28,37 @@
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s linear 0s;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:hover .like-icon .core {
-  fill: var(--contour-color);
-  transition: fill 0.3s linear 0s;
+  fill: var(--accent-color);
+  transition-delay: 0s;
 }
 
 .card__icon-button:hover .like-icon .main-body {
-  fill: var(--contour-color);
-  transition: fill 0.3s linear 0.05s;
+  fill: var(--accent-color);
+  transition-delay: 0.05s;
 }
 
 .card__icon-button:active .like-icon .core {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0s;
+  transition-delay: 0s;
 }
 
 .card__icon-button:active .like-icon .main-body {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0.05s;
+  transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .core {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0s;
+  transition-delay: 0s;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0.05s;
+  transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .contour {
@@ -73,26 +74,32 @@
   animation: sparks-show 0.3s ease-in 0.3s 1;
 }
 
+.card__icon-button:hover .like-icon.is-liked .core,
+.card__icon-button:active .like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition-delay: 0s;
+}
+
+.card__icon-button:hover .like-icon.is-liked .main-body,
+.card__icon-button:active .like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+}
+
 @keyframes heart-scale {
-  0% {
+  from {
     transform: scale(1);
   }
-  50% {
+  to {
     transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 
 @keyframes sparks-show {
-  0% {
+  from {
     opacity: 0;
   }
-  50% {
+  to {
     opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
